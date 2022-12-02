@@ -1,6 +1,6 @@
 package org.example.data;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 enum Priority{
     LOW,
@@ -9,29 +9,38 @@ enum Priority{
 }
 
 public abstract class ATask {
+    private Integer id;
     private String name;
-    private Date regDate;
-    private Date deadline;
+    private LocalDateTime start;
+    private LocalDateTime deadline;
     private String notes;
     private Priority priority;
 
-
-    public ATask(String name, Date regDate, Date dedline, String notes, Priority priority) {
+    public ATask(Integer id, String name, LocalDateTime start, LocalDateTime deadline, String notes, Priority priority) {
+        this.id = id;
         this.name = name;
-        this.regDate = regDate;
-        this.deadline = dedline;
+        this.start = start;
+        this.deadline = deadline;
         this.notes = notes;
         this.priority = priority;
     }
 
-    public ATask(String name, Date regDate, Date dedline, String notes) {
+    public ATask(Integer id, String name, LocalDateTime start, LocalDateTime deadline, String notes) {
+        this.id = id;
         this.name = name;
-        this.regDate = regDate;
-        this.deadline = dedline;
+        this.start = start;
+        this.deadline = deadline;
         this.notes = notes;
         this.priority = Priority.MIDDLE;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -41,19 +50,19 @@ public abstract class ATask {
         this.name = name;
     }
 
-    public Date getRegDate() {
-        return regDate;
+    public LocalDateTime getStart() {
+        return start;
     }
 
-    public void setRegDate(Date regDate) {
-        this.regDate = regDate;
+    public void setStart(LocalDateTime start) {
+        this.start = start;
     }
 
-    public Date getDeadline() {
+    public LocalDateTime getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(Date deadline) {
+    public void setDeadline(LocalDateTime deadline) {
         this.deadline = deadline;
     }
 
