@@ -1,12 +1,6 @@
-package org.example.data;
+package org.example.data.abstractions;
 
 import java.time.LocalDateTime;
-
-enum Priority{
-    LOW,
-    MIDDLE,
-    HIGH
-}
 
 public abstract class ATask {
     protected Integer id;

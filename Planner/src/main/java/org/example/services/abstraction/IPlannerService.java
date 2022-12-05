@@ -1,4 +1,4 @@
-package org.example.services;
+package org.example.services.abstraction;
 
 import org.example.data.Schedule;
 
@@ -14,11 +14,10 @@ public interface IPlannerService <E extends Schedule> {
 
     /**
      * Сохранение текущих расписаний планировщика в файл
-     * @param schedules - список расписаний
      * @param fileName  - файл для сохранения
      * @param format    - формат файла
      */
-    void writeToFile(List<E> schedules, String fileName, String format);
+    void writeToFile(String fileName, String format);
 
     /**
      * Чтение данных из файла
