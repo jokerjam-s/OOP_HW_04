@@ -2,7 +2,7 @@ package org.example.data;
 
 
 public abstract class APerson {
-    private String name;
+    protected String name;
 
     public APerson(String name) {
         this.name = name;

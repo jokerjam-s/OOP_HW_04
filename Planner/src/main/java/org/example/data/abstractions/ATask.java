@@ -9,12 +9,12 @@ enum Priority{
 }
 
 public abstract class ATask {
-    private Integer id;
-    private String name;
-    private LocalDateTime start;
-    private LocalDateTime deadline;
-    private String notes;
-    private Priority priority;
+    protected Integer id;
+    protected String name;
+    protected LocalDateTime start;
+    protected LocalDateTime deadline;
+    protected String notes;
+    protected Priority priority;
 
     public ATask(Integer id, String name, LocalDateTime start, LocalDateTime deadline, String notes, Priority priority) {
         this.id = id;
