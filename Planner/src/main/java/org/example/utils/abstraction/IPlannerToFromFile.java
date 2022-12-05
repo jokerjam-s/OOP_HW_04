@@ -2,10 +2,12 @@ package org.example.utils.abstraction;
 
 import org.example.data.Schedule;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
-public interface IPlannerToFromFile <P extends Schedule> {
-    void writeToFile(String fileName);
+public interface IPlannerToFromFile {
+    void writeToFile(String fileName, List<Schedule> schedules) throws IOException;
 
-    List<P> readFromFile(String fileName);
+    List<Schedule> readFromFile(String fileName) throws FileNotFoundException;
 }

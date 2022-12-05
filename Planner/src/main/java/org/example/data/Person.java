@@ -2,9 +2,10 @@ package org.example.data;
 
 import org.example.data.abstractions.APerson;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Person extends APerson {
+public class Person extends APerson implements Serializable {
     private Integer id;
 
     public Integer getId() {
@@ -18,6 +19,9 @@ public class Person extends APerson {
     public Person(String name, Integer id) {
         super(name);
         this.id = id;
+    }
+
+    public Person() {
     }
 
     @Override

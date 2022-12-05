@@ -3,9 +3,10 @@ package org.example.services;
 import org.example.data.Schedule;
 import org.example.services.abstraction.IPlannerService;
 import org.example.utils.PlannerToFromJson;
-import org.example.utils.PlannerToFromXml;
 import org.example.utils.abstraction.IPlannerToFromFile;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -41,17 +42,19 @@ public class PlannerServiceImpl implements IPlannerService {
     }
 
     @Override
-    public void writeToFile(String fileName, String format) {
+    public void writeToFile(String fileName, String format){
         IPlannerToFromFile writeToFile = null;
 
         if(format.equals("json")){
             writeToFile = new PlannerToFromJson();
-        } else if (format.equals("xml")) {
-            writeToFile = new PlannerToFromXml();
         }
 
         if(writeToFile != null){
-            writeToFile.writeToFile(fileName);
+            try {
+                writeToFile.writeToFile(fileName, this.schedules);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
@@ -62,12 +65,14 @@ public class PlannerServiceImpl implements IPlannerService {
 
         if(format.equals("json")){
             readFromFile = new PlannerToFromJson();
-        } else if (format.equals("xml")) {
-            readFromFile = new PlannerToFromXml();
         }
 
         if(readFromFile != null){
-           scheduleList = readFromFile.readFromFile(fileName);
+            try {
+                scheduleList = readFromFile.readFromFile(fileName);
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         return scheduleList;

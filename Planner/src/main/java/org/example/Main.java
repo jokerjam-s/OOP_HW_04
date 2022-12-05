@@ -11,17 +11,21 @@ public class Main {
         TaskServiceImpl taskService = new TaskServiceImpl();
         PlannerServiceImpl plannerService = new PlannerServiceImpl();
 
+
         for (int i = 0; i < 2; i++) {
             Schedule schedule = new Schedule(personServise.askPerson());
 
-            for (int j = 0; j < 3; j++) {
+            for (int j = 0; j < 2; j++) {
                 schedule.addTask(taskService.askTask());
             }
             plannerService.addShedule(schedule);
         }
 
+
+        //plannerService.readFromFile("Shedule.json", "json");
         plannerService.printSchedule();
         plannerService.writeToFile("Shedule.json", "json");
+
 
     }
 }

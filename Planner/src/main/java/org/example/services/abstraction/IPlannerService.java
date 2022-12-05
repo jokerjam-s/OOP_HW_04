@@ -2,22 +2,23 @@ package org.example.services.abstraction;
 
 import org.example.data.Schedule;
 
+import java.io.IOException;
 import java.util.List;
 
-public interface IPlannerService <E extends Schedule> {
+public interface IPlannerService  {
 
-    public void addShedule(E shedule);
-    public void removeShedule(E shedule);
+    public void addShedule(Schedule shedule);
+    public void removeShedule(Schedule shedule);
     public void removeShedule(int index);
 
-    public List<E> getScheduleList();
+    public List<Schedule> getScheduleList();
 
     /**
      * Сохранение текущих расписаний планировщика в файл
      * @param fileName  - файл для сохранения
      * @param format    - формат файла
      */
-    void writeToFile(String fileName, String format);
+    void writeToFile(String fileName, String format) throws IOException;
 
     /**
      * Чтение данных из файла
@@ -25,7 +26,7 @@ public interface IPlannerService <E extends Schedule> {
      * @param format
      * @return Спис
      */
-    List<E> readFromFile(String fileName, String format);
+    List<Schedule> readFromFile(String fileName, String format);
 
 
 }

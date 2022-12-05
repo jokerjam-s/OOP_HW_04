@@ -14,16 +14,15 @@ public class TaskServiceImpl implements ITaskService {
     public ATask askTask() {
         Scanner intScanner = new Scanner(System.in);
         Scanner stringScanner = new Scanner(System.in);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
 
         System.out.print("Идентификатор: ");
         Integer id = intScanner.nextInt();
         System.out.print("Название: ");
         String name = stringScanner.nextLine();
         System.out.print("Старт (dd.MM.yyyy HH:mm): ");
-        LocalDateTime start = LocalDateTime.parse(stringScanner.nextLine(), formatter);
+        String start = stringScanner.nextLine();
         System.out.print("Дедлайн (dd.MM.yyyy HH:mm): ");
-        LocalDateTime deadline = LocalDateTime.parse(stringScanner.nextLine(), formatter);
+        String deadline = stringScanner.nextLine();
         System.out.print("Описание: ");
         String notes = stringScanner.nextLine();
         System.out.print("Приоритет (1-3): ");

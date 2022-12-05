@@ -3,6 +3,7 @@ package org.example.data;
 import org.example.data.abstractions.APerson;
 import org.example.data.abstractions.ATask;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
  * @param <P>   - класс персон, длz которой формируется расписание
  * @param <T>   - класс задач, назначаемыз персоне
  */
-public class Schedule <P extends APerson, T extends ATask> implements Iterable<T> {
+public class Schedule <P extends APerson, T extends ATask> implements Iterable<T>, Serializable {
     private P person;
     private List<T> tasks;
 

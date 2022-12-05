@@ -1,16 +1,17 @@
 package org.example.data.abstractions;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 public abstract class ATask {
     protected Integer id;
     protected String name;
-    protected LocalDateTime start;
-    protected LocalDateTime deadline;
+    protected String start;
+    protected String deadline;
     protected String notes;
     protected Priority priority;
 
-    public ATask(Integer id, String name, LocalDateTime start, LocalDateTime deadline, String notes, Priority priority) {
+    public ATask(Integer id, String name, String start, String deadline, String notes, Priority priority) {
         this.id = id;
         this.name = name;
         this.start = start;
@@ -19,13 +20,16 @@ public abstract class ATask {
         this.priority = priority;
     }
 
-    public ATask(Integer id, String name, LocalDateTime start, LocalDateTime deadline, String notes) {
+    public ATask(Integer id, String name, String start, String deadline, String notes) {
         this.id = id;
         this.name = name;
         this.start = start;
         this.deadline = deadline;
         this.notes = notes;
         this.priority = Priority.MIDDLE;
+    }
+
+    public ATask() {
     }
 
     public Integer getId() {
@@ -44,19 +48,19 @@ public abstract class ATask {
         this.name = name;
     }
 
-    public LocalDateTime getStart() {
+    public String getStart() {
         return start;
     }
 
-    public void setStart(LocalDateTime start) {
+    public void setStart(String start) {
         this.start = start;
     }
 
-    public LocalDateTime getDeadline() {
+    public String getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(LocalDateTime deadline) {
+    public void setDeadline(String deadline) {
         this.deadline = deadline;
     }
 
